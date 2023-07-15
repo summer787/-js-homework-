@@ -43,8 +43,9 @@ function passwordCheck() {
 
 const loginButton = document.querySelector(".btn-login");
 
-function loginMove() {
-  if (userName === user.id && userSecret === user.pw) {
+function loginMove(event) {
+  event.preventDefault();
+  if (emailInput.value === user.id && passwordInput.value=== user.pw) {
     window.location.href = "welcome.html";
   } else {
     alert("아이디나 비밀번호를 다시 확인하세요");
