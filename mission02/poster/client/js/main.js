@@ -1,4 +1,3 @@
-
 const nav = getNode('nav');
 const ul = getNode("ul");
 
@@ -26,18 +25,19 @@ function setNameText(name) {
   nickName.textContent = name;
 }
 
-// 1. 클릭 이벤트 활성화
+// 클릭 이벤트 활성화
 
 function handleSlider(e) {
   const target = e.target.closest("li");
   const list = [...ul.children];
+  const index = attr(target,"data-index");
+  const realdata = index-1;
+  const { color, name, alt } = data[realdata];
+
   if (!target) return;
   list.forEach((li) => removeClass(li, "is-active"));
   addClass(target, "is-active");
 
-  const index = attr(target,"data-index");
-  const realdata = index-1;
-  const { color, name, alt } = data[realdata];
   
   setBgColor(color);
   setImage(name,alt);
